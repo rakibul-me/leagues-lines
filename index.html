@@ -1,0 +1,948 @@
+<!doctype html>
+<html>
+
+
+<head>
+    
+    <input type="hidden" name="csrfmiddlewaretoken" value="9QNajU8Uhi5NA0O5Dvnm0fo3VGF1CaySQrL3sEKL4nfoTil9U8MhEKxIMsLSywaZ">
+    <!-- !!!!AJAX!!!! --><script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
+    
+
+    
+	<title>Leagues</title>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1" name="viewport">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	
+	
+	
+	<link rel="shortcut icon" type="image/png" href="http://68.14.80.61:8081/static-main/images/favicon.ico"/>
+	<link rel="stylesheet" type="text/css" href="http://68.14.80.61:8081/static-main/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="http://68.14.80.61:8081/static-main/css/optional/homepage.css">
+	<link rel="stylesheet" type="text/css" href="http://68.14.80.61:8081/static-main/css/optional/dataTables.bootstrap4.min.css">
+	<!--<link rel="stylesheet" type="text/css" href="/static-main/css/bootstrap-select.min.css">-->
+	
+	<!-- BOOTSTRAP 5 
+	<link rel="stylesheet" type="text/css" href="/static-main/css/bootstrap5/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/static-main/css/bootstrap5/bootstrap-utilities.min.css">
+	<link rel="stylesheet" type="text/css" href="/static-main/css/bootstrap5/bootstrap-grid.min.css">
+	<link rel="stylesheet" type="text/css" href="/static-main/css/bootstrap5/bootstrap-reboot.min.css">-->
+		
+	<!-- MAIN CSS FILE -->
+	<link rel="stylesheet" type="text/css" href="http://68.14.80.61:8081/static-main/css/SportsMain.css">	
+
+	<script src="http://68.14.80.61:8081/static-main/js/jquery-3.5.1.slim.min.js"></script>
+	
+	<!-- BOOK BREAKERS JS TOOLS LOADED IN HEADER FOR USE IN OTHER FILES-->
+	<script src="http://68.14.80.61:8081/static-main/js/optional/BookBreakersTools.js"></script>
+    
+	<link rel="stylesheet" type="text/css" href="http://68.14.80.61:8081/static-main/css/optional/admin-panel.css">
+    <link rel="stylesheet" type="text/css" href="http://68.14.80.61:8081/static-main/css/optional/message-bar.css">
+    <link rel="stylesheet" type="text/css" href="http://68.14.80.61:8081/static-main/css/optional/bet-bar.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
+</head>
+
+<body class="sb-nav-fixed sb-sidenav-toggled ms-nav-fixed ms-sidenav-toggled bt-nav-fixed bt-sidenav-toggled" style="background-color: rgb(255, 255, 255);">
+
+
+<style>
+	.nav-font{
+		font-size:calc(7px + .5vw) !important;
+	}
+</style>
+<nav class="sb-topnav navbar navbar-expand navbar-custom navbar-dark bg-dark fixed-top">
+	<a class="navbar-brand nav-font" href="\" style="width:calc(150px + 5vw);">&nbsp;&nbsp;&nbsp;Book Breakers (Beta)</a>
+	
+	
+	<div class="collapse navbar-collapse" id="navbarsExample06">
+		<ul class="navbar-nav mr-auto">
+			<li class="nav-item">
+				<button onclick="toggleAdminPanel(false)" class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0 nav-font" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>	&nbsp;&nbsp;&nbsp;&nbsp;
+			</li>
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle nav-font" href="#" id="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Betting Tools</a>
+				<div class="dropdown-menu" aria-labelledby="">
+					<a class="dropdown-item" href="/tools/odds-conversion">Odds Converter</a>
+					<a class="dropdown-item" href="/tools/vig-free">Vig Free Line Calculator</a>
+					<a class="dropdown-item" href="/tools/value-calc">Value Calculator</a>
+					<a class="dropdown-item" href="/tools/kelly-calc">Kelly Criterion Calculator</a>
+					
+				</div>
+			</li>
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle nav-font" href="#" id="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Information</a>
+				<div class="dropdown-menu" aria-labelledby="">
+					<a class="dropdown-item" href="/info/winning">How is it possible to win at sports betting?</a>
+					<a class="dropdown-item" href="/info/vigorish">What is Vig (and Vig Free Lines)?</a>
+					<a class="dropdown-item" href="/info/bet-types">Winning Bet Types</a>
+					<a class="dropdown-item" href="/info/kelly-criterion">Kelly Criterion</a>
+				</div>
+			</li>
+		
+		</ul>
+		<ul class="navbar-nav mc-auto">
+    <li id="connection-status" class="nav-item blinking" style="display: none;">
+        <a class="my-2 my-md-0 nav-link" href="" style="height: 35px;">Disconnected
+            <span class="fa-stack" style="vertical-align: middle;">
+                <i style="color:rgb(201, 201, 201);height:35px;width:35px" class="fa fa-wifi fa-stack-2x"></i>
+                <i style="color:red;height:20px;width:35px" class="fas fa-exclamation  fa-stack-1x fa-lg"></i>
+            </span></a>
+    </li>
+</ul>
+<ul class="navbar-nav ml-auto">
+    
+    
+    <li class="nav-item">
+        <a class="my-2 my-md-0 nav-link nav-font" href="/dashboard">Dashboard</a>
+    </li>
+    <li class="nav-item">
+        <button onclick="toggleMessages(false)" class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0 my-2 my-md-0 nav-link nav-font" style="margin:0px !important" id="messageToggle" href="#!">Messages <i class="fas fa-comments fa-lg"></i></button>	
+    </li>
+        
+        <li class="nav-item">
+            <a class="my-2 my-md-0 nav-link nav-font" href="/admin/">Admin</a>
+        </li>
+        
+    <li class="nav-item">
+        <a class="my-2 my-md-0 nav-link nav-font" href="/dashboard">User: </a>
+    </li>
+    <li class="nav-item">
+        <a class="my-2 my-md-0 nav-link nav-font" href="/logout/">Logout</a>
+    </li>
+    
+</ul>
+	</div>
+	
+</nav>
+
+
+<div id="layoutSidenav">
+    <div id="layoutSidenav_nav">
+        <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+            <div class="sb-sidenav-menu">
+                <div class="nav">
+                    <div class="sb-sidenav-menu-heading">Dashboard</div>
+                    <!-- i types: fa-tachometer-alt, fa-table, fa-chart-area, fa-angle-down, fa-columns, fa-book-open, fa-user  -->
+                    <a class="nav-link" href="/dashboard">
+                        <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                        Home
+                    </a>
+                    <a class="nav-link" href="/games-list">
+                        <div class="sb-nav-link-icon"><i class="fa fa-globe"></i></div>
+                        Upcoming Games
+                    </a>
+                    <a class="nav-link" href="/bet-history">
+                        <div class="sb-nav-link-icon"><i class="fas fa-history"></i></div>
+                        Bet History
+                    </a>
+                    <a class="nav-link" href="/profile?user=1">
+                        <div class="sb-nav-link-icon"><i class="fas fa-id-card"></i></div>
+                        My Profile
+                    </a>
+                    <a class="nav-link" href="/profile-list">
+                        <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
+                        User Profiles
+                    </a>
+                    <a class="nav-link" href="/value-bets">
+                        <div class="sb-nav-link-icon"><i class="fas fa-dollar-sign fa-lg"></i></div>
+                        &nbsp;Value Bets
+                    </a>
+
+                    <div class="sb-sidenav-menu-heading">Sports</div>
+                   
+                    
+        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#Basketball" aria-expanded="false" aria-controls="Basketball">
+            <div class="sb-nav-link-icon"><i class="fas fa-basketball-ball"></i></div>
+            Basketball
+            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+        </a>
+        <div class="collapse" id="Basketball" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
+            <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages"><a class="nav-link" href="/sports?league=200"><div class="sb-nav-link-icon"></div>NBA (0)</a>
+            </nav>
+        </div>
+        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#Baseball" aria-expanded="false" aria-controls="Baseball">
+            <div class="sb-nav-link-icon"><i class="fas fa-baseball-ball"></i></div>
+            Baseball
+            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+        </a>
+        <div class="collapse" id="Baseball" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
+            <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages"><a class="nav-link" href="/sports?league=100"><div class="sb-nav-link-icon"></div>MLB (13)</a>
+            </nav>
+        </div>
+
+
+                    <div class="sb-sidenav-menu-heading">Preferences</div>
+                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#sites" aria-expanded="false" aria-controls="sites">
+                        <div class="sb-nav-link-icon"><i class="fas fa-clipboard-list"></i></div>
+                        My Betting Sites
+                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                    </a>
+                    <form method="POST">
+                        <div class="collapse" id="sites" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
+                                <input type="hidden" name="csrfmiddlewaretoken" value="9QNajU8Uhi5NA0O5Dvnm0fo3VGF1CaySQrL3sEKL4nfoTil9U8MhEKxIMsLSywaZ"> 
+                                <div class="nav-link" style="padding:0px"><input type="checkbox" name="1" onchange="this.form.submit()"><a class="nav-link" href="https://www.pinnacle.com/en/" target="_blank" style="padding-top:0px;padding-bottom:0px">Pinnacle</a></div><div class="nav-link" style="padding:0px"><input type="checkbox" name="2" onchange="this.form.submit()"><a class="nav-link" href="https://engine.mybookie.ag/sports/home" target="_blank" style="padding-top:0px;padding-bottom:0px">MyBookie</a></div><div class="nav-link" style="padding:0px"><input type="checkbox" name="3" checked onchange="this.form.submit()"><a class="nav-link" href="https://www.bovada.lv/" target="_blank" style="padding-top:0px;padding-bottom:0px">Bovada</a></div><div class="nav-link" style="padding:0px"><input type="checkbox" name="4" onchange="this.form.submit()"><a class="nav-link" href="https://www.betonline.ag/" target="_blank" style="padding-top:0px;padding-bottom:0px">BetOnline</a></div><div class="nav-link" style="padding:0px"><input type="checkbox" name="5" checked onchange="this.form.submit()"><a class="nav-link" href="https://sports.everygame.eu/en/Bets/Baseball/4" target="_blank" style="padding-top:0px;padding-bottom:0px">EveryGame</a></div><div class="nav-link" style="padding:0px"><input type="checkbox" name="6" checked onchange="this.form.submit()"><a class="nav-link" href="https://sportsbook.fanduel.com/" target="_blank" style="padding-top:0px;padding-bottom:0px">FanDuel</a></div><div class="nav-link" style="padding:0px"><input type="checkbox" name="7" checked onchange="this.form.submit()"><a class="nav-link" href="https://sportsbook.draftkings.com/featured" target="_blank" style="padding-top:0px;padding-bottom:0px">DraftKings</a></div><div class="nav-link" style="padding:0px"><input type="checkbox" name="8" checked onchange="this.form.submit()"><a class="nav-link" href="https://casino.wv.betmgm.com/en/games?wm=&btag=&tdpeh=&pid=" target="_blank" style="padding-top:0px;padding-bottom:0px">BetMGM</a></div><div class="nav-link" style="padding:0px"><input type="checkbox" name="9" checked onchange="this.form.submit()"><a class="nav-link" href="https://www.williamhill.com/us/nj/bet/" target="_blank" style="padding-top:0px;padding-bottom:0px">Caesars</a></div><div class="nav-link" style="padding:0px"><input type="checkbox" name="10" checked onchange="this.form.submit()"><a class="nav-link" href="https://ct.playsugarhouse.com/?page=sportsbook&feed=featured#home" target="_blank" style="padding-top:0px;padding-bottom:0px">Sugarhouse</a></div><div class="nav-link" style="padding:0px"><input type="checkbox" name="11" checked onchange="this.form.submit()"><a class="nav-link" href="https://co.wynnbet.com/sportsbook" target="_blank" style="padding-top:0px;padding-bottom:0px">WynnBet</a></div><div class="nav-link" style="padding:0px"><input type="checkbox" name="12" checked onchange="this.form.submit()"><a class="nav-link" href="https://co.betfredsports.com/sports/sport/4/baseball/matches" target="_blank" style="padding-top:0px;padding-bottom:0px">BetFred</a></div><div class="nav-link" style="padding:0px"><input type="checkbox" name="13" onchange="this.form.submit()"><a class="nav-link" href="https://co.playupusa.com/en-us/sports/baseball" target="_blank" style="padding-top:0px;padding-bottom:0px">PlayUp</a></div><div class="nav-link" style="padding:0px"><input type="checkbox" name="14" onchange="this.form.submit()"><a class="nav-link" href="https://co.superbook.com/sports/navigation/1110.1/7627.1" target="_blank" style="padding-top:0px;padding-bottom:0px">SuperBook</a></div><div class="nav-link" style="padding:0px"><input type="checkbox" name="15" onchange="this.form.submit()"><a class="nav-link" href="https://co.pointsbet.com/" target="_blank" style="padding-top:0px;padding-bottom:0px">PointsBet</a></div><div class="nav-link" style="padding:0px"><input type="checkbox" name="16" onchange="this.form.submit()"><a class="nav-link" href="https://co.betway.com/" target="_blank" style="padding-top:0px;padding-bottom:0px">Betway</a></div><div class="nav-link" style="padding:0px"><input type="checkbox" name="17" onchange="this.form.submit()"><a class="nav-link" href="https://co.foxbet.com/#/" target="_blank" style="padding-top:0px;padding-bottom:0px">FoxBet</a></div><div class="nav-link" style="padding:0px"><input type="checkbox" name="18" onchange="this.form.submit()"><a class="nav-link" href="https://www.barstoolsportsbook.com/sports/baseball" target="_blank" style="padding-top:0px;padding-bottom:0px">Barstool</a></div><div class="nav-link" style="padding:0px"><input type="checkbox" name="19" onchange="this.form.submit()"><a class="nav-link" href="https://www.sisportsbook.com/baseball/" target="_blank" style="padding-top:0px;padding-bottom:0px">SIBook</a></div><div class="nav-link" style="padding:0px"><input type="checkbox" name="20" onchange="this.form.submit()"><a class="nav-link" href="https://co.ballybet.com/sports/home.sbk" target="_blank" style="padding-top:0px;padding-bottom:0px">BallyBet</a></div>
+                                <input type="hidden" name="my_sites_form" value="True">
+                            </nav>
+                        </div>
+                    </form>
+                    
+                    
+                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#odds_type" aria-expanded="false" aria-controls="odds_type">
+                        <div class="sb-nav-link-icon"><i class="fas fa-flag-usa"></i></div>
+                        Odds Type
+                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                    </a>
+                    <form method="POST">
+                        <div class="collapse" id="odds_type" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
+                                <input type="hidden" name="csrfmiddlewaretoken" value="9QNajU8Uhi5NA0O5Dvnm0fo3VGF1CaySQrL3sEKL4nfoTil9U8MhEKxIMsLSywaZ"> 
+                                <div class="nav-link" style="padding:0px"><input type="radio" name="odds_type" onchange="this.form.submit()" id="Am" value="Am" checked><label for="Am" class="nav-link" style="height:18px;margin-top:5px">American</label></div>
+                                <div class="nav-link" style="padding:0px"><input type="radio" name="odds_type" onchange="this.form.submit()" id="Dec" value="Dec" ><label for="Dec" class="nav-link" style="height:18px;margin-top:5px">Decimal</label></div>
+                                <input type="hidden" name="odds_type_form" value="True">
+                            </nav>
+                        </div>
+                    </form>
+
+                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#estimation_methods" aria-expanded="false" aria-controls="estimation_methods">
+                        <div class="sb-nav-link-icon"><i class="fas fa-calculator"></i></div>
+                        Estimation Methods
+                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                    </a>
+                    <form method="POST">
+                        <div class="collapse" id="estimation_methods" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
+                                <input type="hidden" name="csrfmiddlewaretoken" value="9QNajU8Uhi5NA0O5Dvnm0fo3VGF1CaySQrL3sEKL4nfoTil9U8MhEKxIMsLSywaZ"> 
+                                <div class="nav-link" style="padding:0px"><input type="checkbox" name="1" onchange="this.form.submit()"><a class="nav-link" href="#" target="" style="padding-top:0px;padding-bottom:0px;font-size:12px">Vig Free Avg</a></div>
+                                <input type="hidden" name="estimation_methods_form" value="True">
+                            </nav>
+                        </div>
+                    </form>
+                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#primary_estimation" aria-expanded="false" aria-controls="primary_estimation">
+                        <div class="sb-nav-link-icon"><i class="fas fa-calculator"></i></div>
+                        Primary Estimation
+                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                    </a>
+                    <form method="POST">
+                        <div class="collapse" id="primary_estimation" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
+                                <input type="hidden" name="csrfmiddlewaretoken" value="9QNajU8Uhi5NA0O5Dvnm0fo3VGF1CaySQrL3sEKL4nfoTil9U8MhEKxIMsLSywaZ"> 
+                                <div class="nav-link" style="padding:0px"><input type="radio" name="p_est" onchange="this.form.submit()" value="0" checked><a class="nav-link" href="#" target="" style="padding-top:0px;padding-bottom:0px;font-size:12px">None</a></div><div class="nav-link" style="padding:0px"><input type="radio" name="p_est" onchange="this.form.submit()" value="1"><a class="nav-link" href="#" target="" style="padding-top:0px;padding-bottom:0px;font-size:12px">Vig Free Avg</a></div>
+                                <input type="hidden" name="primary_estimation_form" value="True">
+                            </nav>
+                        </div>
+                    </form>
+                    <a class="nav-link" href="/settings">
+                        <div class="sb-nav-link-icon"><i class="fas fa-cog"></i></div>
+                        My Settings
+                    </a>
+                    <!--
+                    <div class="sb-sidenav-menu-heading">API Connect</div>
+                    <a class="nav-link" href="/portals/api-keys">
+                        <div class="sb-nav-link-icon"><i class="fas fa-key"></i></div>
+                        API Keys
+                    </a>-->
+                    
+                    
+                </div>
+            </div>
+            <div class="sb-sidenav-footer">
+                <div class="small">Logged in as:</div>
+            </div>
+        </nav>
+    </div>
+</div>
+
+<script type="text/javascript">
+    window.addEventListener('load', function () {
+        toggleAdminPanel(true)
+    })
+</script>
+<style>
+.card-bordered {
+    border: 1px solid #ebebeb
+}
+
+.card {
+    border: 0;
+    border-radius: 0px;
+    margin-bottom: 30px;
+    -webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.03);
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.03);
+    -webkit-transition: .5s;
+    transition: .5s
+}
+
+.padding {
+    padding: 3rem !important
+}
+
+body {
+    background-color: #f9f9fa
+}
+
+.card-header:first-child {
+    border-radius: calc(.25rem - 1px) calc(.25rem - 1px) 0 0
+}
+
+.card-header {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: transparent;
+    border-bottom: 1px solid rgba(77, 82, 89, 0.07)
+}
+
+.card-header .card-title {
+    padding: 0;
+    border: none
+}
+
+h4.card-title {
+    font-size: 17px
+}
+
+.card-header>*:last-child {
+    margin-right: 0
+}
+
+.card-header>* {
+    margin-left: 8px;
+    margin-right: 8px
+}
+
+.btn-secondary {
+    color: #4d5259 !important;
+    background-color: #e4e7ea;
+    border-color: #e4e7ea;
+    color: #fff
+}
+
+.btn-xs {
+    font-size: 11px;
+    padding: 2px 8px;
+    line-height: 18px
+}
+
+.btn-xs:hover {
+    color: #fff !important
+}
+
+.card-title {
+    font-family: Roboto, sans-serif;
+    font-weight: 300;
+    line-height: 1.5;
+    margin-bottom: 0;
+    padding: 15px 20px;
+    border-bottom: 1px solid rgba(77, 82, 89, 0.07)
+}
+
+.ps-container {
+    position: relative
+}
+
+.ps-container {
+    -ms-touch-action: auto;
+    touch-action: auto;
+    overflow: hidden !important;
+    -ms-overflow-style: none
+}
+
+.media-chat {
+    padding-right: 64px;
+    margin-bottom: 0
+}
+
+.media {
+    padding: 16px 12px;
+    -webkit-transition: background-color .2s linear;
+    transition: background-color .2s linear
+}
+
+.media .avatar {
+    flex-shrink: 0
+}
+
+.avatar {
+    position: relative;
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
+    border-radius: 100%;
+    background-color: #f5f6f7;
+    color: #8b95a5;
+    text-transform: uppercase
+}
+
+.media-chat .media-body {
+    -webkit-box-flex: initial;
+    flex: initial;
+    display: table
+}
+
+.media-body {
+    min-width: 0
+}
+
+.media-chat .media-body p {
+    position: relative;
+    padding: 6px 8px;
+    margin: 4px 0;
+    background-color: #f5f6f7;
+    border-radius: 3px;
+    font-weight: 100;
+    color: #9b9b9b
+}
+
+.media>* {
+    margin: 0 8px
+}
+
+.media-chat .media-body p.meta {
+    background-color: transparent !important;
+    padding: 0;
+    opacity: .8
+}
+
+.media-meta-day {
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    align-items: center;
+    margin-bottom: 0;
+    color: #8b95a5;
+    opacity: .8;
+    font-weight: 400
+}
+
+.media {
+    padding: 16px 12px;
+    -webkit-transition: background-color .2s linear;
+    transition: background-color .2s linear
+}
+
+.media-meta-day::before {
+    margin-right: 16px
+}
+
+.media-meta-day::before,
+.media-meta-day::after {
+    content: '';
+    -webkit-box-flex: 1;
+    flex: 1 1;
+    border-top: 1px solid #ebebeb
+}
+
+.media-meta-day::after {
+    content: '';
+    -webkit-box-flex: 1;
+    flex: 1 1;
+    border-top: 1px solid #ebebeb
+}
+
+.media-meta-day::after {
+    margin-left: 16px
+}
+
+.media-chat.media-chat-reverse {
+    padding-right: 12px;
+    padding-left: 64px;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+    flex-direction: row-reverse
+}
+
+.media-chat {
+    padding-right: 64px;
+    margin-bottom: 0
+}
+
+.media {
+    padding: 16px 12px;
+    -webkit-transition: background-color .2s linear;
+    transition: background-color .2s linear
+}
+
+.media-chat.media-chat-reverse .media-body p {
+    float: right;
+    clear: right;
+    background-color: #48b0f7;
+    color: #fff
+}
+
+.media-chat .media-body p {
+    position: relative;
+    padding: 6px 8px;
+    margin: 4px 0;
+    background-color: #f5f6f7;
+    border-radius: 3px
+}
+
+.border-light {
+    border-color: #f1f2f3 !important
+}
+
+.bt-1 {
+    border-top: 1px solid #ebebeb !important
+}
+
+.publisher {
+    position: relative;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    padding: 12px 20px;
+    background-color: #f9fafb
+}
+
+.publisher>*:first-child {
+    margin-left: 0
+}
+
+.publisher>* {
+    margin: 0 8px
+}
+
+.publisher-input {
+    -webkit-box-flex: 1;
+    flex-grow: 1;
+    border: none;
+    outline: none !important;
+    background-color: transparent
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+    font-family: Roboto, sans-serif;
+    font-weight: 300
+}
+
+.publisher-btn {
+    background-color: transparent;
+    border: none;
+    color: #8b95a5;
+    font-size: 16px;
+    cursor: pointer;
+    overflow: -moz-hidden-unscrollable;
+    -webkit-transition: .2s linear;
+    transition: .2s linear
+}
+
+.file-group {
+    position: relative;
+    overflow: hidden
+}
+
+.publisher-btn {
+    background-color: transparent;
+    border: none;
+    color: #cac7c7;
+    font-size: 16px;
+    cursor: pointer;
+    overflow: -moz-hidden-unscrollable;
+    -webkit-transition: .2s linear;
+    transition: .2s linear
+}
+
+.file-group input[type="file"] {
+    position: absolute;
+    opacity: 0;
+    z-index: -1;
+    width: 20px
+}
+
+.text-info {
+    color: #48b0f7 !important
+}
+</style>
+
+
+
+<div id="messageSidenav" style="float:left">
+    <div id="messageSidenav_nav">
+        <nav class="ms-sidenav ms-accordion ms-sidenav-light" id="messageSidenavAccordion">
+            <div class="ms-sidenav-menu">
+                <div class="nav">
+                    <div class="ms-sidenav-menu-heading"><button onclick="toggleMessages(false)" class="ms-sidenav-menu-heading btn nav-link" id="messageToggle2" style="border-radius:5px;font-size:25px">Messages&nbsp;&nbsp;&nbsp; <i class="fa fa-angle-double-right fa-lg"></i></button>	
+                    </div>
+                    <button id="CR-1-1" data-user="1" onclick="openChat(`1-1`)" class="nav-link btn user">Ace535 [Site Admin]</button><button id="CR-1-2" data-user="2" onclick="openChat(`1-2`)" class="nav-link btn user">Brian</button>
+                </div>
+            </div>
+
+            
+        </nav>
+    </div>
+</div>
+
+
+	
+
+<script type="text/javascript">
+var csrf = document.getElementsByName('csrfmiddlewaretoken')[0].value
+
+function sendMessage(){
+    var token = {'csrfmiddlewaretoken':csrf}
+    var msgtxt = document.getElementById("message_text").value; 
+    var data = {'chatroom':localStorage.getItem('ms|chatroom'),'message_text':msgtxt,'function':'sendMessage'}
+    post_data = Object.assign({}, data, token);
+    
+    if (msgtxt != ""){
+    d = $.ajax({
+        type:'POST',
+        url:'/message-data',
+        data:post_data,
+        success: (res) => {
+            updateChat(res)
+            var msgtxt = document.getElementById("message_text"); 
+            msgtxt.value="";
+        },
+        error: (res)=>{
+            updateChat(res)
+        }
+    })}
+}
+
+function openChat(chatroom){
+    localStorage.setItem('ms|chatroom', chatroom);
+    var token = {'csrfmiddlewaretoken':csrf}
+    var data = {'chatroom':chatroom,'function':'openChat'}
+    post_data = Object.assign({}, data, token);
+    
+    if (document.getElementById("chat-main") != null){
+        document.getElementById("chat-main").remove()
+    }
+
+    
+
+    var chatbutton = document.getElementById("CR-"+chatroom)
+    chatbutton.innerText =  chatbutton.innerText.replace(/ *\([^)]*\) */g, "");
+
+    document.getElementById("messageSidenavAccordion").innerHTML += `
+    <div id="chat-main" class="card" style="height:50%;margin-bottom:0px">
+                
+        <div class="card-header" style="height:10%">
+            <h4 class="card-title"><a href="/profile?user=${chatbutton.dataset.user}">${chatbutton.innerText}</a></h4>
+        </div>
+        <div class="ps-container ps-theme-default ps-active-y" id="chat-content" style="overflow-y: scroll !important; height:100% !important;display: flex; flex-direction: column-reverse;">
+        
+        </div>
+        <div class="publisher bt-1 border-light">  <input id="message_text" class="publisher-input" type="text" placeholder="Write something"> <button class="publisher-btn text-info" onclick="sendMessage()" data-abc="true"><i class="fa fa-paper-plane"></i></button> </div>
+    </div>`
+
+    var messageInput = document.getElementById("message_text")
+    messageInput.addEventListener('keyup',e=>{
+    if (event.keyCode === 13) {
+        event.preventDefault();
+        sendMessage()
+    }})
+
+    d = $.ajax({
+        type:'POST',
+        url:'/message-data',
+        data:post_data,
+        success: (res) => {
+            updateChat(res)
+        },
+        error: (res)=>{
+            updateChat(res)
+        }
+    })
+}
+
+function initChat(){
+    if (localStorage.getItem('ms|chatroom') != null) {
+        openChat(localStorage.getItem('ms|chatroom'));
+    }
+}
+
+//document.onload = initChat();
+
+function updateChat(res){
+    if (res.hasOwnProperty('data')){
+        var messages = res.data.messages
+        var chatContent = document.getElementById('chat-content')
+
+        var curmessages = document.getElementsByClassName('media-body')
+        var last_message = curmessages[-1]
+        
+        messages.forEach(message => {
+            var messageDiv = document.getElementById("MS-"+message.id);
+            var lastMessageID = message.id - 1
+            var lastMessageDiv = document.getElementById("MS-"+lastMessageID);
+            
+            var mtype = ""
+            if(message['user'] == 1){mtype=" media-chat-reverse"}
+            var dte = new Date(""); 
+            if(messageDiv == null){
+                if(lastMessageDiv == null){
+                    var txt = `
+                        <div class="media media-chat${mtype}">
+                            <div class="media-body">
+                                <p id="MS-${message['id']}" data-user="${message['user']}" data-time="${message['time']}">${message['message_text']}</p>
+                                <!--<p class="meta" style="font-size:10px;color:black">${message['time']}</p>-->
+                            </div>
+                        </div>`
+                        chatContent.innerHTML = txt + chatContent.innerHTML
+                }else{
+                    if(lastMessageDiv.dataset.user != message['user']){
+                        var txt = `
+                        <div class="media media-chat${mtype}">
+                            <div class="media-body">
+                                <p id="MS-${message['id']}" data-user="${message['user']}" data-time="${message['time']}">${message['message_text']}</p>
+                                <!--<p class="meta" style="font-size:10px;color:black">${message['time']}</p>-->
+                            </div>
+                        </div>`
+                        chatContent.innerHTML = txt + chatContent.innerHTML
+                    }else{
+                        var txt = `<p id="MS-${message['id']}" data-user="${message['user']}" data-time="${message['time']}">${message['message_text']}</p>`
+                        lastMessageDiv.insertAdjacentHTML('afterend', txt);
+                    }
+                
+                }
+            }
+        });
+        var connection = document.getElementById('connection-status')
+        connection.style.display = "none";
+    }else{
+        var connection = document.getElementById('connection-status')
+        connection.style.display = "block";
+    };
+};
+
+// Inputs is dictionary
+function messageUpdates(){
+    if (localStorage.getItem('ms|sidebar') === 'yes') {
+        chatroom = localStorage.getItem('ms|chatroom')
+        if(document.getElementById('chat-content') === null){
+            openChat(chatroom)
+        }
+        var chatbutton = document.getElementById("CR-"+chatroom)
+        chatbutton.innerText =  chatbutton.innerText.replace(/ *\([^)]*\) */g, "")
+        token = {'csrfmiddlewaretoken':csrf}
+        var data = {'chatroom':chatroom,'function':'messageUpdates'}
+        post_data = Object.assign({}, data, token);
+        d = $.ajax({
+            type:'POST',
+            url:'/message-data',
+            data:post_data,
+            success: (res) => {
+                updateChat(res)
+            },
+            error: (res)=>{
+                updateChat(res)
+            }})
+    }
+};
+
+// Make Interval Updates
+var interval = window.setInterval(messageUpdates,2000);
+
+
+
+window.addEventListener('load', function () {
+    messageUpdates()
+    toggleMessages(true)
+})
+
+</script>
+
+
+<style>
+    .bet{
+        margin-left: 0px;
+        margin-right: 0px;
+        font-size: 16px;
+        padding-top: 0px;
+        border-radius:0px !important;
+        text-align:left;
+    }
+    .bet:hover{
+        background-color: rgb(53, 53, 53);
+        color: rgb(255, 255, 255) !important;
+        font-weight: 700;
+        
+    }
+    .bet-small{
+        font-size: 12px;
+        margin-top:0px;
+        line-height:12px;
+    }
+    .bet-info{
+        font-size: 12px;
+        margin-top:0px;
+    }
+    .x:hover{
+        color: rgb(0, 255, 255) !important;
+    }
+    .hidden{
+        display:none;
+    }
+    .parlay-check{
+        margin-right:10px;
+    }
+
+    .parlay-card{
+        height:20%;
+        margin-bottom:0px;
+        margin-top:auto;
+    }
+    .parlay-info-header{
+        margin-top: 15px;
+        margin-bottom:4px;
+        font-size: 16px;
+        border-radius:0px !important;
+        text-align:center;
+        font-style:italic;
+        text-decoration:underline;
+    }
+    .parlay-info{
+        font-size: 12px;
+        margin-top:0px;
+    }
+    .inline{
+        overflow: hidden;
+        white-space: nowrap;
+        display:inline;
+    }
+    .form-control-xs {
+        height: calc(1em + .375rem + 2px) !important;
+        padding: .125rem .25rem !important;
+        margin-top: 1px;
+        font-size: .75rem !important;
+        line-height: 1.5;
+        border-radius: .2rem;
+    }
+    .form-control-xs:focus {
+        box-shadow: 1px 1px 1px 1px;
+    }
+
+    /* UPDATED */
+    .sb-sidenav-toggled.ms-sidenav-toggled #page-content-wrapper {
+        width: calc(100% - 10px)
+    }
+
+</style>
+<div id="betSidenav" style="float:left">
+    <div id="betSidenav_nav">
+        <nav class="bt-sidenav bt-accordion bt-sidenav-light" id="betSidenavAccordion">
+            <div class="bt-sidenav-menu" style="overflow-x: hidden;">
+                <div class="nav" style="height:100%" >
+                    <div class="bt-sidenav-menu-heading"><button onclick="toggleBets(false)" class="bt-sidenav-menu-heading btn nav-link" id="bets" style="border-radius:5px;font-size:25px">Bets&nbsp;&nbsp;&nbsp; <i class="fa fa-angle-double-right fa-lg"></i></button>
+                        Click checkbox to add to parlay.<br>
+                        Click the bet to view info.</div>
+                    <div id="open-bets" class="nav" style="width:100%">
+                    </div>
+                    <div id="parlay" class="card parlay-card">
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+</div>
+
+
+<script src="http://68.14.80.61:8081/static-main/tiered_schedule.js"></script>
+
+
+
+
+<div id="page-content-wrapper">
+    <div style="min-height:75vh">
+
+<link rel="stylesheet" type="text/css" href="http://68.14.80.61:8081/static-main/css/optional/accordion_table.css">
+
+<!-- UPDATED -->
+<link rel="stylesheet" href="accordion_table.css">
+
+<center><div class="row"><form method="post"><input type="hidden" name="csrfmiddlewaretoken" value="9QNajU8Uhi5NA0O5Dvnm0fo3VGF1CaySQrL3sEKL4nfoTil9U8MhEKxIMsLSywaZ"><h1> League Lines</h1></div></center><div style="margin-top:0px">
+
+
+
+    <!-- UPDATED TABLE -->
+    <script src="http://68.14.80.61:8081/static-main/tiered_schedule.js" defer></script>
+    <script src="render_table.js" defer></script>
+    <script src="accordion_table.js" defer></script>
+    <table class="mlat">
+        <thead>
+          <tr>
+            <th>Home Team</th>
+            <th>Away Team</th>
+            <th>Date</th>
+            <th>Time</th>
+          </tr>
+        </thead>
+        <tbody id="mlat-table"></tbody>
+      </table>
+
+<div id="bet-block-insert" class="bet-block-insert box-hide"></div></div><!-- AJAX --><script src="http://68.14.80.61:8081/static-main/js/jquery-3.6.0.min.js"></script>
+
+
+<!-- UPDATED -->
+
+<script src="http://68.14.80.61:8081/static-main/js/optional/accordian_table.js"></script>
+
+
+    </div>
+
+
+ <!-- Footer-->
+ <footer class="py-5 bg-black">
+    <div class="container px-5"><p class="m-0 text-center text-black small">Copyright &copy; Butterfly Effect Data LLC 2021</p></div>
+</footer>
+
+<script src="http://68.14.80.61:8081/static-main/js/bootstrap.bundle.min.js"></script>
+<script src="http://68.14.80.61:8081/static-main/js/bootstrap-select.min.js"></script>
+
+</div>
+
+
+
+
+
+<script src="http://68.14.80.61:8081/static-main/js/optional/admin-panel.js"></script>
+<script src="http://68.14.80.61:8081/static-main/js/bootstrap5/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>-->
+<!--<script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>-->
+    
+<script src="http://68.14.80.61:8081/static-main/js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+        var csrf = document.getElementsByName('csrfmiddlewaretoken')[0].value
+        checkScreenDims()
+        function checkScreenDims(){
+            var width = window.screen.width;
+            var height = window.screen.height;
+            var ratio = window.devicePixelRatio || 1
+            var exp_width = 1536;
+            var exp_height = 864;
+            if (width != exp_width || height != exp_height){
+                d = $.ajax({
+                type:'POST',
+                url:'/process-updates',
+                data:{
+                    'csrfmiddlewaretoken':csrf,
+                    'screen_width':width,
+                    'screen_height':height,
+                },
+                success: (res) => {
+                    console.log('window size updated')
+                },
+                error: (res)=>{console.log(res);}        
+                })}}
+        
+    </script>
+</body>
+
+
+
+</html>
