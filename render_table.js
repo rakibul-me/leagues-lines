@@ -1,1 +1,454 @@
-var _0x2f6f6f=_0xb37f;(function(_0x2b92f0,_0x59ce8d){var _0xcd5020=_0xb37f,_0x4fc902=_0x2b92f0();while(!![]){try{var _0x49ac34=parseInt(_0xcd5020(0xce))/0x1*(-parseInt(_0xcd5020(0xa8))/0x2)+-parseInt(_0xcd5020(0x92))/0x3+-parseInt(_0xcd5020(0x6b))/0x4*(-parseInt(_0xcd5020(0xc4))/0x5)+-parseInt(_0xcd5020(0x94))/0x6*(-parseInt(_0xcd5020(0xa0))/0x7)+-parseInt(_0xcd5020(0xb8))/0x8*(parseInt(_0xcd5020(0x9e))/0x9)+-parseInt(_0xcd5020(0x68))/0xa+-parseInt(_0xcd5020(0xc6))/0xb*(-parseInt(_0xcd5020(0x8b))/0xc);if(_0x49ac34===_0x59ce8d)break;else _0x4fc902['push'](_0x4fc902['shift']());}catch(_0x2220e9){_0x4fc902['push'](_0x4fc902['shift']());}}}(_0xa7f9,0xaa4ac));const container=document[_0x2f6f6f(0xc9)](_0x2f6f6f(0x95));function _0xb37f(_0x4f78db,_0x5293c8){var _0xa7f93d=_0xa7f9();return _0xb37f=function(_0xb37f83,_0x2cbd13){_0xb37f83=_0xb37f83-0x66;var _0x733e34=_0xa7f93d[_0xb37f83];return _0x733e34;},_0xb37f(_0x4f78db,_0x5293c8);}container[_0x2f6f6f(0xc7)]='';var open_bets=[],my_sites=[0x3,0x5,0x6,0x7,0x8,0x9,0xa,0xb,0xc],site_dic={0x1:{'site_id':0x1,'site_name':_0x2f6f6f(0x76),'site_abbreviation':'PN','locations':['US'],'link':_0x2f6f6f(0x80)},0x2:{'site_id':0x2,'site_name':_0x2f6f6f(0x93),'site_abbreviation':'MB','locations':[_0x2f6f6f(0x69)],'link':_0x2f6f6f(0xd1)},0x3:{'site_id':0x3,'site_name':_0x2f6f6f(0x66),'site_abbreviation':'BV','locations':[_0x2f6f6f(0x69)],'link':'https://www.bovada.lv/'},0x4:{'site_id':0x4,'site_name':_0x2f6f6f(0xc5),'site_abbreviation':'BO','locations':[_0x2f6f6f(0x69)],'link':_0x2f6f6f(0x7e)},0x5:{'site_id':0x5,'site_name':'EveryGame','site_abbreviation':'EG','locations':['Online'],'link':'https://sports.everygame.eu/en/Bets/Baseball/4'},0x6:{'site_id':0x6,'site_name':'FanDuel','site_abbreviation':'FD','locations':['US'],'link':_0x2f6f6f(0xc2)},0x7:{'site_id':0x7,'site_name':_0x2f6f6f(0xcf),'site_abbreviation':'DK','locations':['US'],'link':'https://sportsbook.draftkings.com/featured'},0x8:{'site_id':0x8,'site_name':_0x2f6f6f(0xae),'site_abbreviation':'BM','locations':['US'],'link':_0x2f6f6f(0xa7)},0x9:{'site_id':0x9,'site_name':_0x2f6f6f(0xc1),'site_abbreviation':'CS','locations':['US'],'link':_0x2f6f6f(0x89)},0xa:{'site_id':0xa,'site_name':_0x2f6f6f(0xd0),'site_abbreviation':'SH','locations':['US'],'link':'https://ct.playsugarhouse.com/?page=sportsbook&feed=featured#home'},0xb:{'site_id':0xb,'site_name':_0x2f6f6f(0xcd),'site_abbreviation':'WB','locations':['US'],'link':_0x2f6f6f(0x8e)},0xc:{'site_id':0xc,'site_name':_0x2f6f6f(0x81),'site_abbreviation':'BF','locations':['US'],'link':_0x2f6f6f(0x8d)},0xd:{'site_id':0xd,'site_name':'PlayUp','site_abbreviation':'PU','locations':['US'],'link':'https://co.playupusa.com/en-us/sports/baseball'},0xe:{'site_id':0xe,'site_name':_0x2f6f6f(0xa1),'site_abbreviation':'SB','locations':['US'],'link':_0x2f6f6f(0x74)},0xf:{'site_id':0xf,'site_name':_0x2f6f6f(0xbb),'site_abbreviation':'PB','locations':['US'],'link':'https://co.pointsbet.com/'},0x10:{'site_id':0x10,'site_name':_0x2f6f6f(0x90),'site_abbreviation':'BW','locations':['US'],'link':_0x2f6f6f(0xb4)},0x11:{'site_id':0x11,'site_name':'FoxBet','site_abbreviation':'FB','locations':['US'],'link':_0x2f6f6f(0x6c)},0x12:{'site_id':0x12,'site_name':_0x2f6f6f(0xb2),'site_abbreviation':'BS','locations':['US'],'link':_0x2f6f6f(0xaf)},0x13:{'site_id':0x13,'site_name':_0x2f6f6f(0x73),'site_abbreviation':'SI','locations':['US'],'link':_0x2f6f6f(0x77)},0x14:{'site_id':0x14,'site_name':_0x2f6f6f(0x9d),'site_abbreviation':'BB','locations':['US'],'link':_0x2f6f6f(0x71)}},site_headers='';function _0xa7f9(){var _0x33235a=['</td>\x0a\x20\x20\x20\x20\x20\x20<td>-</td>\x0a\x20\x20\x20\x20</tr>\x0a\x20\x20\x20\x20<tr\x20class=\x22table-within\x20table-containing-row\x22>\x0a\x20\x20\x20\x20\x20\x20<td\x20colspan=\x22100%\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<table>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<thead>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<tr>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<th>Bet\x20Type</th><th>Line</th><th>Outcome</th>','length','https://casino.wv.betmgm.com/en/games?wm=&btag=&tdpeh=&pid=','414814nrtzOh','forEach','am_odds','more-rows','<tr\x20class=\x22details-row\x20more\x22>','sites','BetMGM','https://www.barstoolsportsbook.com/sports/baseball','log','</tr>','Barstool','replace','https://co.betway.com/','<tr\x20class=\x22table-within\x20expand-btn\x22\x20onclick=\x22toggleTable(this)\x22>\x0a\x20\x20\x20\x20\x20\x20<td\x20data-expand-icon=\x22➕\x22>','</tbody>','<td>','3352fNgByu','<tr\x20class=\x22details-row\x22><td>','\x22></td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','PointsBet','<table>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<thead>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<tr>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<th>Player</th><th>Line</th><th>Outcome</th>','\x0a\x20\x20\x20\x20\x20\x20</td>\x0a\x20\x20\x20\x20</tr>','away_team_name','home_team_name','lines','Caesars','https://sportsbook.fanduel.com/','</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</tr>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<tr\x20class=\x22table-within\x20table-containing-row\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td\x20colspan=\x22100%\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','9805jzazNC','BetOnline','94314OsAIjk','innerHTML','full_hash','querySelector','shift','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</tbody>','</td>','WynnBet','1xibnuM','DraftKings','Sugarhouse','https://engine.mybookie.ag/sports/home','Bovada','outcomes','11728900wLbqAc','Online','</th>','2556IQQbDY','https://co.foxbet.com/#/','includes','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</tr>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</thead>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','<th>','hasOwnProperty','https://co.ballybet.com/sports/home.sbk','down','SIBook','https://co.superbook.com/sports/navigation/1110.1/7627.1','onclick=\x22toggleMoreRows(this)\x22\x20data-expanded=\x22false\x22','Pinnacle','https://www.sisportsbook.com/baseball/','onclick=\x22toggleMoreRows(this)\x22\x0a\x20\x20\x20\x20\x20\x20\x20\x20data-expanded=\x22false\x22','map','<tr\x20class=\x22details-row\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td\x20rowspan=\x22','main_line','outcome_name','<tbody\x20class=\x22table-row\x20','https://www.betonline.ag/','entries','https://www.pinnacle.com/en/','BetFred','\x22\x20data-number-status=\x22','$&<span>&#9660;</span>&nbsp;','line','\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','site_name','categories','<tr\x20class=\x22details-row\x20more\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td\x20rowspan=\x22','https://www.williamhill.com/us/nj/bet/','join','2172Ciqlzf','<td\x20id=\x22','https://co.betfredsports.com/sports/sport/4/baseball/matches','https://co.wynnbet.com/sportsbook','category_name','Betway','<td\x20rowspan=\x22','3621549cAGioD','MyBookie','102jiIgfZ','#mlat-table','is_prop','rows','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','keys','players','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</tr>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</thead>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','push','BallyBet','13149SmSgXK','<tr\x20class=\x22details-row\x22>','449722FPsMkX','SuperBook','<tr\x20class=\x22details-row\x22><td\x20rowspan=\x22','game_time','\x22></td>'];_0xa7f9=function(){return _0x33235a;};return _0xa7f9();}my_sites[_0x2f6f6f(0xa9)](_0x5a3a8d=>{var _0x3ac797=_0x2f6f6f;site_headers+=_0x3ac797(0x6f)+site_dic[_0x5a3a8d][_0x3ac797(0x86)]+_0x3ac797(0x6a);}),createTable();function createTable(){var _0x161670=_0x2f6f6f;for(const [_0x251ca5,_0x50a504]of Object[_0x161670(0x7f)](response)){game_date_time=Date['parse'](_0x50a504[_0x161670(0xa3)]);let _0x16125f='',_0x4827a0=_0x50a504['sport_name'];for(const [_0x46de0b,_0x16a163]of Object['entries'](_0x50a504['categories'])['sort'](function(_0x25f2a3,_0x491774){return order(_0x25f2a3,_0x4827a0)-order(_0x491774,_0x4827a0);})){if(_0x16a163[_0x161670(0x96)]==!![]){var _0x2ba72c='';for(const [_0x2795c4,_0xc7da33]of Object[_0x161670(0x7f)](_0x16a163[_0x161670(0x9a)])['sort']()){let _0x2f6c5a=createRow(_0xc7da33[_0x161670(0xc0)][_0xc7da33[_0x161670(0x7b)]],_0x46de0b,_0x251ca5,_0x2795c4);main_player_line=_0x161670(0x7a)+_0x2f6c5a['rows'][_0x161670(0xa6)]+_0x161670(0x85)+_0x2795c4+_0x161670(0x98)+(_0x2f6c5a[_0x161670(0x84)]+_0x2f6c5a[_0x161670(0x97)][0x0])+'\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</tr>';_0x2f6c5a[_0x161670(0x97)][_0x161670(0xa6)]>0x1&&(_0x2f6c5a[_0x161670(0x97)][_0x161670(0xca)](),main_player_line+=_0x2f6c5a[_0x161670(0x97)][_0x161670(0x79)](_0x1e72e3=>_0x161670(0x9f)+_0x1e72e3+_0x161670(0xb1))[_0x161670(0x8a)](''));alt_player_lines='';for(const [_0x59ca30,_0x292fc3]of Object[_0x161670(0x7f)](_0xc7da33[_0x161670(0xc0)])['sort'](function(_0xf28316,_0x4e25ca){return parseFloat(_0xf28316)-parseFloat(_0x4e25ca);})){if(_0x59ca30!=_0xc7da33[_0x161670(0x7b)])try{let _0x592cc5=createRow(_0x292fc3,_0x46de0b,_0x251ca5,_0x2795c4);alt_player_lines=_0x161670(0x88)+_0x592cc5[_0x161670(0x97)][_0x161670(0xa6)]+_0x161670(0xba)+(_0x592cc5[_0x161670(0x84)]+_0x592cc5[_0x161670(0x97)][0x0])+'\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</tr>',_0x592cc5[_0x161670(0x97)][_0x161670(0xa6)]>0x1&&(_0x592cc5[_0x161670(0x97)][_0x161670(0xca)](),alt_player_lines+=_0x592cc5[_0x161670(0x97)][_0x161670(0x79)](_0x490f28=>_0x161670(0xac)+_0x490f28+_0x161670(0xb1))[_0x161670(0x8a)](''));}catch(_0xb8106a){console['log'](_0xb8106a);}}_0x2ba72c+=_0x161670(0x7d)+(alt_player_lines&&_0x161670(0xab))+'\x22\x20'+(alt_player_lines&&_0x161670(0x75))+'>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20'+((alt_player_lines?main_player_line[_0x161670(0xb3)](/rowspan=\"\d+\">/,_0x161670(0x83)):main_player_line)+alt_player_lines)+_0x161670(0xcb);}var _0x173402=_0x161670(0xbc)+site_headers+_0x161670(0x9b)+_0x2ba72c+'\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</table>';_0x16125f+='<tr\x20class=\x22table-within\x20expand-btn\x22\x20onclick=\x22toggleTable(this)\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td\x20colspan=\x22100%\x22\x20class=\x22legend\x22\x20data-expand-icon=\x22➕\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span>'+_0x16a163[_0x161670(0x8f)]+_0x161670(0xc3)+_0x173402+'\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</tr>';}else{try{let _0x9c14d3=createRow(_0x16a163[_0x161670(0xc0)][_0x16a163['main_line']],_0x46de0b,_0x251ca5);var _0x40e5c3=_0x161670(0xa2)+_0x9c14d3[_0x161670(0x97)][_0x161670(0xa6)]+'\x22>'+_0x16a163['category_name']+_0x161670(0xcc)+(_0x9c14d3[_0x161670(0x84)]+_0x9c14d3['rows'][0x0])+'</tr>';_0x9c14d3[_0x161670(0x97)]['length']>0x1&&(_0x9c14d3[_0x161670(0x97)][_0x161670(0xca)](),_0x40e5c3+=_0x9c14d3['rows'][_0x161670(0x79)](_0x9b7b9f=>_0x161670(0x9f)+_0x9b7b9f+_0x161670(0xb1))[_0x161670(0x8a)](''));}catch(_0x168219){var _0x40e5c3=_0x161670(0xb9)+_0x16a163[_0x161670(0x8f)]+'</td></tr>';}var _0x10ab7c='';for(const [_0x14df0d,_0x596ffd]of Object[_0x161670(0x7f)](_0x16a163[_0x161670(0xc0)])['sort'](function(_0x5dbc09,_0x538bd5){return parseFloat(_0x5dbc09)-parseFloat(_0x538bd5);})){if(_0x14df0d!=_0x16a163[_0x161670(0x7b)])try{let _0x13fe78=createRow(_0x596ffd,_0x46de0b,_0x251ca5);_0x10ab7c+='<tr\x20class=\x22details-row\x20more\x22><td\x20rowspan=\x22'+_0x13fe78[_0x161670(0x97)][_0x161670(0xa6)]+_0x161670(0xa4)+(_0x13fe78['line']+_0x13fe78[_0x161670(0x97)][0x0])+_0x161670(0xb1),_0x13fe78[_0x161670(0x97)]['length']>0x1&&(_0x13fe78[_0x161670(0x97)]['shift'](),_0x10ab7c+=_0x13fe78[_0x161670(0x97)][_0x161670(0x79)](_0x55446e=>_0x161670(0xac)+_0x55446e+'</tr>')[_0x161670(0x8a)](''));}catch(_0xcf50d0){console[_0x161670(0xb0)](_0xcf50d0);}}var _0x21fac9=''+_0x40e5c3;_0x16125f+='<tbody\x20class=\x22table-row\x20'+(_0x10ab7c&&_0x161670(0xab))+'\x22\x20'+(_0x10ab7c&&_0x161670(0x78))+'>'+((_0x10ab7c?_0x21fac9['replace'](/rowspan=\"\d+\">/,_0x161670(0x83)):_0x21fac9)+_0x10ab7c)+_0x161670(0xb6);}}if(Object[_0x161670(0x99)](_0x50a504[_0x161670(0x87)])[_0x161670(0xa6)]!=0x0){let _0x939d56=_0x161670(0xb5)+_0x50a504[_0x161670(0xbf)]+'</td>\x0a\x20\x20\x20\x20\x20\x20<td>'+_0x50a504[_0x161670(0xbe)]+'</td>\x0a\x20\x20\x20\x20\x20\x20<td>'+_0x50a504[_0x161670(0xa3)]+_0x161670(0xa5)+site_headers+_0x161670(0x6e)+_0x16125f+_0x161670(0xbd);container[_0x161670(0xc7)]+=_0x939d56;}}}function createRow(_0x4821ec,_0x5bf8b6,_0x5b371c,_0x48e83f=null){var _0x2817b0=_0x2f6f6f;let _0x505bda=[];var _0x2a9bbb=[];for(const [_0x1d2553,_0x4e352f]of Object[_0x2817b0(0x7f)](_0x4821ec[_0x2817b0(0x67)])){_0x2a9bbb[_0x2817b0(0x9c)](_0x4e352f[_0x2817b0(0x7c)]);}let _0x4a654f=_0x2817b0(0x91)+_0x2a9bbb[_0x2817b0(0xa6)]+'\x22>'+(_0x4821ec[_0x2817b0(0x84)]=='0'?'':_0x4821ec[_0x2817b0(0x84)])+'</td>',_0x1e8ea4=0x0;for(const [_0x4ae87d,_0x11359c]of Object[_0x2817b0(0x7f)](_0x4821ec[_0x2817b0(0x67)])){_0x505bda[_0x1e8ea4]=_0x2817b0(0xb7)+_0x11359c[_0x2817b0(0x7c)]+'</td>',_0x1e8ea4++;}return my_sites['forEach'](_0x5a6ee0=>{var _0x51bef3=_0x2817b0,_0x26de91=site_dic[_0x5a6ee0][_0x51bef3(0x86)];let _0x25dd25=0x0;for(const [_0x3ae56b,_0x43a0fb]of Object[_0x51bef3(0x7f)](_0x4821ec[_0x51bef3(0x67)])){if(_0x43a0fb[_0x51bef3(0xad)][_0x51bef3(0x70)](_0x26de91)){let _0x5acfc3=_0x43a0fb['sites'][_0x26de91][_0x51bef3(0xaa)];_0x505bda[_0x25dd25++]+=_0x51bef3(0x8c)+_0x43a0fb[_0x51bef3(0xad)][_0x26de91][_0x51bef3(0xc8)]+_0x51bef3(0x82)+(_0x5acfc3[_0x51bef3(0x6d)]('+')?'up':_0x5acfc3[_0x51bef3(0x6d)]('-')?_0x51bef3(0x72):'')+'\x22>'+_0x5acfc3+_0x51bef3(0xcc);}else{if(_0x48e83f!=null)var _0x5d659d='^('+_0x48e83f+')';else var _0x5d659d='';var _0x44116d=_0x5b371c+'_'+_0x5bf8b6+_0x5d659d+'^'+_0x4821ec['line']+'*'+_0x3ae56b+'_'+_0x26de91;_0x505bda[_0x25dd25++]+=_0x51bef3(0x8c)+_0x44116d+'\x22>-</td>';}}}),{'line':_0x4a654f,'rows':_0x505bda};}function order(_0x14d33b,_0xe8e390){var _0x5823b0=_0x2f6f6f,_0x10c977=_0x14d33b[0x0]['split']('^'),_0x301f59={'Baseball':{0x0:0x0,'f3':0x3e8,'f5':0x7d0,'f7':0xbb8,0x1:0x2af8,0x2:0x2ee0,0x3:0x32c8,0x4:0x36b0,0x5:0x3a98,0x6:0x3e80,0x7:0x4268,0x8:0x4650,0x9:0x4a38},'Soccer':{},'Football':{}},_0x49fea1={'Baseball':{0x0:0x0,0x1:0x1,0x2:0x2,'3H':0x3,'3A':3.5,'0x':0x4,'PHR':0x18704,'PHI':0x18705,'PRS':0x18706,'PRBI':0x18707,'PHIRRBI':0x18713,'PB':0x1870e,'P1':0x1870f,'P2':0x18710,'P3':0x18711,'PSB':0x18712,'PSO':0x18768,'PER':0x18769,'PRW':0x1876a,'PO':0x1876b,'PHA':0x1876c,'PW':0x1876d},'Soccer':{},'Football':{}},_0x21c8e7=0x0;return _0x49fea1[_0xe8e390][_0x5823b0(0x70)](_0x10c977[0x0])?_0x21c8e7=_0x49fea1[_0xe8e390][_0x10c977[0x0]]:(_0x21c8e7=0x989680,console[_0x5823b0(0xb0)](_0x10c977)),_0x301f59[_0xe8e390]['hasOwnProperty'](_0x10c977[0x1])?_0x21c8e7+=_0x301f59[_0xe8e390][_0x10c977[0x1]]:(_0x21c8e7+=0x989680,console[_0x5823b0(0xb0)](_0x10c977)),_0x21c8e7;}
+const container = document.querySelector("#mlat-table");
+//reset container first
+container.innerHTML = "";
+
+var open_bets = [];
+var my_sites = [3, 5, 6, 7, 8, 9, 10, 11, 12];
+var site_dic = {
+  1: {
+    site_id: 1,
+    site_name: "Pinnacle",
+    site_abbreviation: "PN",
+    locations: ["US"],
+    link: "https://www.pinnacle.com/en/",
+  },
+  2: {
+    site_id: 2,
+    site_name: "MyBookie",
+    site_abbreviation: "MB",
+    locations: ["Online"],
+    link: "https://engine.mybookie.ag/sports/home",
+  },
+  3: {
+    site_id: 3,
+    site_name: "Bovada",
+    site_abbreviation: "BV",
+    locations: ["Online"],
+    link: "https://www.bovada.lv/",
+  },
+  4: {
+    site_id: 4,
+    site_name: "BetOnline",
+    site_abbreviation: "BO",
+    locations: ["Online"],
+    link: "https://www.betonline.ag/",
+  },
+  5: {
+    site_id: 5,
+    site_name: "EveryGame",
+    site_abbreviation: "EG",
+    locations: ["Online"],
+    link: "https://sports.everygame.eu/en/Bets/Baseball/4",
+  },
+  6: {
+    site_id: 6,
+    site_name: "FanDuel",
+    site_abbreviation: "FD",
+    locations: ["US"],
+    link: "https://sportsbook.fanduel.com/",
+  },
+  7: {
+    site_id: 7,
+    site_name: "DraftKings",
+    site_abbreviation: "DK",
+    locations: ["US"],
+    link: "https://sportsbook.draftkings.com/featured",
+  },
+  8: {
+    site_id: 8,
+    site_name: "BetMGM",
+    site_abbreviation: "BM",
+    locations: ["US"],
+    link: "https://casino.wv.betmgm.com/en/games?wm=&btag=&tdpeh=&pid=",
+  },
+  9: {
+    site_id: 9,
+    site_name: "Caesars",
+    site_abbreviation: "CS",
+    locations: ["US"],
+    link: "https://www.williamhill.com/us/nj/bet/",
+  },
+  10: {
+    site_id: 10,
+    site_name: "Sugarhouse",
+    site_abbreviation: "SH",
+    locations: ["US"],
+    link: "https://ct.playsugarhouse.com/?page=sportsbook&feed=featured#home",
+  },
+  11: {
+    site_id: 11,
+    site_name: "WynnBet",
+    site_abbreviation: "WB",
+    locations: ["US"],
+    link: "https://co.wynnbet.com/sportsbook",
+  },
+  12: {
+    site_id: 12,
+    site_name: "BetFred",
+    site_abbreviation: "BF",
+    locations: ["US"],
+    link: "https://co.betfredsports.com/sports/sport/4/baseball/matches",
+  },
+  13: {
+    site_id: 13,
+    site_name: "PlayUp",
+    site_abbreviation: "PU",
+    locations: ["US"],
+    link: "https://co.playupusa.com/en-us/sports/baseball",
+  },
+  14: {
+    site_id: 14,
+    site_name: "SuperBook",
+    site_abbreviation: "SB",
+    locations: ["US"],
+    link: "https://co.superbook.com/sports/navigation/1110.1/7627.1",
+  },
+  15: {
+    site_id: 15,
+    site_name: "PointsBet",
+    site_abbreviation: "PB",
+    locations: ["US"],
+    link: "https://co.pointsbet.com/",
+  },
+  16: {
+    site_id: 16,
+    site_name: "Betway",
+    site_abbreviation: "BW",
+    locations: ["US"],
+    link: "https://co.betway.com/",
+  },
+  17: {
+    site_id: 17,
+    site_name: "FoxBet",
+    site_abbreviation: "FB",
+    locations: ["US"],
+    link: "https://co.foxbet.com/#/",
+  },
+  18: {
+    site_id: 18,
+    site_name: "Barstool",
+    site_abbreviation: "BS",
+    locations: ["US"],
+    link: "https://www.barstoolsportsbook.com/sports/baseball",
+  },
+  19: {
+    site_id: 19,
+    site_name: "SIBook",
+    site_abbreviation: "SI",
+    locations: ["US"],
+    link: "https://www.sisportsbook.com/baseball/",
+  },
+  20: {
+    site_id: 20,
+    site_name: "BallyBet",
+    site_abbreviation: "BB",
+    locations: ["US"],
+    link: "https://co.ballybet.com/sports/home.sbk",
+  },
+};
+var site_headers = "";
+
+my_sites.forEach((site_id) => {
+  site_headers += `<th>${site_dic[site_id]["site_name"]}</th>`;
+});
+
+createTable();
+
+function createTable() {
+  for (const [game_id, game_data] of Object.entries(response)) {
+    game_date_time = Date.parse(game_data["game_time"]);
+    let categories_html = "";
+    let sport = game_data["sport_name"];
+
+    for (const [category_id, cat_data] of Object.entries(
+      game_data["categories"]
+    ).sort(function (a, b) {
+      return order(a, sport) - order(b, sport);
+    })) {
+      if (cat_data["is_prop"] == true) {
+        // PROPS
+        var players = ``;
+        for (const [player, player_data] of Object.entries(
+          cat_data["players"]
+        ).sort()) {
+          let rowsData = createRow(
+            player_data["lines"][player_data["main_line"]],
+            category_id,
+            game_id,
+            player
+          );
+          main_player_line = `<tr class="details-row">
+              <td rowspan="${rowsData.rows.length}">
+                ${player}
+              </td>
+              ${rowsData.line + rowsData.rows[0]}
+            </tr>`;
+          if (rowsData.rows.length > 1) {
+            rowsData.rows.shift();
+            main_player_line += rowsData.rows
+              .map((row) => `<tr class="details-row">${row}</tr>`)
+              .join("");
+          }
+
+          alt_player_lines = ``;
+
+          for (const [line, line_data] of Object.entries(
+            player_data["lines"]
+          ).sort(function (a, b) {
+            return parseFloat(a) - parseFloat(b);
+          })) {
+            if (line != player_data["main_line"]) {
+              try {
+                let rowsData = createRow(
+                  line_data,
+                  category_id,
+                  game_id,
+                  player
+                );
+                alt_player_lines = `<tr class="details-row more">
+                    <td rowspan="${rowsData.rows.length}"></td>
+                    ${rowsData.line + rowsData.rows[0]}
+                  </tr>`;
+                if (rowsData.rows.length > 1) {
+                  rowsData.rows.shift();
+                  alt_player_lines += rowsData.rows
+                    .map((row) => `<tr class="details-row more">${row}</tr>`)
+                    .join("");
+                }
+              } catch (err) {
+                console.log(err);
+              }
+            }
+          }
+          players += `<tbody class="table-row ${
+            alt_player_lines && "more-rows"
+          }" ${
+            alt_player_lines &&
+            `onclick="toggleMoreRows(this)" data-expanded="false"`
+          }>
+            ${
+              (alt_player_lines
+                ? main_player_line.replace(
+                    /rowspan=\"\d+\">/,
+                    "$&<span>&#9660;</span>&nbsp;"
+                  )
+                : main_player_line) + alt_player_lines
+            }
+          </tbody>`;
+        }
+        var players_table_html = `<table>
+            <thead>
+              <tr>
+                <th>Player</th><th>Line</th><th>Outcome</th>${site_headers}
+              </tr>
+            </thead>
+                  ${players}
+          </table>`;
+        categories_html += `<tr class="table-within expand-btn" onclick="toggleTable(this)">
+            <td colspan="100%" class="legend" data-expand-icon="➕">
+              <span>${cat_data["category_name"]}</span>
+            </td>
+          </tr>
+          <tr class="table-within table-containing-row">
+            <td colspan="100%">
+              ${players_table_html}
+            </td>
+          </tr>`;
+      } else {
+        // MAIN LINES
+        try {
+          let rowsData = createRow(
+            cat_data["lines"][cat_data["main_line"]],
+            category_id,
+            game_id
+          );
+          var main_row = `<tr class="details-row"><td rowspan="${
+            rowsData.rows.length
+          }">${cat_data["category_name"]}</td>${
+            rowsData.line + rowsData.rows[0]
+          }</tr>`;
+          if (rowsData.rows.length > 1) {
+            rowsData.rows.shift();
+            main_row += rowsData.rows
+              .map((row) => `<tr class="details-row">${row}</tr>`)
+              .join("");
+          }
+        } catch (err) {
+          var main_row = `<tr class="details-row"><td>${cat_data["category_name"]}</td></tr>`;
+        }
+
+        var alt_lines = ``;
+        for (const [line, line_data] of Object.entries(cat_data["lines"]).sort(
+          function (a, b) {
+            return parseFloat(a) - parseFloat(b);
+          }
+        )) {
+          if (line != cat_data["main_line"]) {
+            try {
+              let rowsData = createRow(line_data, category_id, game_id);
+              alt_lines += `<tr class="details-row more"><td rowspan="${
+                rowsData.rows.length
+              }"></td>${rowsData.line + rowsData.rows[0]}</tr>`;
+              if (rowsData.rows.length > 1) {
+                rowsData.rows.shift();
+                alt_lines += rowsData.rows
+                  .map((row) => `<tr class="details-row more">${row}</tr>`)
+                  .join("");
+              }
+            } catch (err) {
+              console.log(err);
+            }
+          }
+        }
+        var main_line = `${main_row}`;
+        categories_html += `<tbody class="table-row ${
+          alt_lines && "more-rows"
+        }" ${
+          alt_lines &&
+          `onclick="toggleMoreRows(this)"
+        data-expanded="false"`
+        }>${
+          (alt_lines
+            ? main_line.replace(
+                /rowspan=\"\d+\">/,
+                "$&<span>&#9660;</span>&nbsp;"
+              )
+            : main_line) + alt_lines
+        }</tbody>`;
+      }
+    }
+    if (Object.keys(game_data["categories"]).length != 0) {
+      let mainTable = `<tr class="table-within expand-btn" onclick="toggleTable(this)">
+      <td data-expand-icon="➕">${game_data["home_team_name"]}</td>
+      <td>${game_data["away_team_name"]}</td>
+      <td>${game_data["game_time"]}</td>
+      <td>-</td>
+    </tr>
+    <tr class="table-within table-containing-row">
+      <td colspan="100%">
+        <table>
+          <thead>
+            <tr>
+              <th>Bet Type</th><th>Line</th><th>Outcome</th>${site_headers}
+            </tr>
+          </thead>
+          ${categories_html}
+      </td>
+    </tr>`;
+      container.innerHTML += mainTable;
+    }
+  }
+}
+
+function createRow(row_data, category_id, game_id, player = null) {
+  let rows = [];
+  var outcomes = [];
+  for (const [outcome_id, outcome_data] of Object.entries(
+    row_data["outcomes"]
+  )) {
+    outcomes.push(outcome_data["outcome_name"]);
+  }
+  let line = `<td rowspan="${outcomes.length}">${
+    row_data["line"] == "0" ? "" : row_data["line"]
+  }</td>`;
+
+  let i = 0;
+  for (const [outcome_id, outcome_data] of Object.entries(
+    row_data["outcomes"]
+  )) {
+    rows[i] = `<td>${outcome_data["outcome_name"]}</td>`;
+    i++;
+  }
+
+  my_sites.forEach((site_id) => {
+    var site_name = site_dic[site_id]["site_name"];
+    let j = 0;
+    for (const [outcome_id, outcome_data] of Object.entries(
+      row_data["outcomes"]
+    )) {
+      if (outcome_data["sites"].hasOwnProperty(site_name)) {
+        let number = outcome_data["sites"][site_name]["am_odds"];
+        rows[
+          j++
+        ] += `<td id="${outcome_data["sites"][site_name]["full_hash"]}" data-number-status="${number.includes('+') ? "up" : number.includes('-') ? "down" : ""}">${number}</td>`;
+      } else {
+        if (player != null) {
+          var player_hash = `^(${player})`;
+        } else {
+          var player_hash = "";
+        }
+        var make_hash = `${game_id}_${category_id}${player_hash}^${row_data["line"]}*${outcome_id}_${site_name}`;
+        rows[j++] += `<td id="${make_hash}">-</td>`;
+      }
+    }
+  });
+  return { line: line, rows };
+}
+
+function order(id, sport) {
+  var id_split = id[0].split("^");
+  var period_dic = {
+    Baseball: {
+      // MAIN LINES
+      0: 0,
+      f3: 1000,
+      f5: 2000,
+      f7: 3000,
+      1: 11000,
+      2: 12000,
+      3: 13000,
+      4: 14000,
+      5: 15000,
+      6: 16000,
+      7: 17000,
+      8: 18000,
+      9: 19000,
+    },
+    Soccer: {},
+    Football: {},
+  };
+  var order_dic = {
+    Baseball: {
+      // MAIN LINES
+      0: 0,
+      1: 1,
+      2: 2,
+      "3H": 3,
+      "3A": 3.5,
+      "0x": 4,
+      // PROPS
+      PHR: 100100,
+      PHI: 100101,
+      PRS: 100102,
+      PRBI: 100103,
+      PHIRRBI: 100115,
+      PB: 100110,
+      P1: 100111,
+      P2: 100112,
+      P3: 100113,
+      PSB: 100114,
+      PSO: 100200,
+      PER: 100201,
+      PRW: 100202,
+      PO: 100203,
+      PHA: 100204,
+      PW: 100205,
+    },
+    Soccer: {},
+    Football: {},
+  };
+  var order_num = 0;
+  if (order_dic[sport].hasOwnProperty(id_split[0])) {
+    order_num = order_dic[sport][id_split[0]];
+  } else {
+    order_num = 10000000;
+    console.log(id_split);
+  }
+  if (period_dic[sport].hasOwnProperty(id_split[1])) {
+    order_num += period_dic[sport][id_split[1]];
+  } else {
+    order_num += 10000000;
+    console.log(id_split);
+  }
+  return order_num;
+}

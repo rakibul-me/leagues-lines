@@ -1,1 +1,22 @@
-function _0x11af(_0x5d9499,_0x3ce5c7){const _0x5cc740=_0x5cc7();return _0x11af=function(_0x11af6b,_0x4cf272){_0x11af6b=_0x11af6b-0x94;let _0x5a3259=_0x5cc740[_0x11af6b];return _0x5a3259;},_0x11af(_0x5d9499,_0x3ce5c7);}(function(_0x60f920,_0x148077){const _0x33de37=_0x11af,_0x234495=_0x60f920();while(!![]){try{const _0x4eac35=-parseInt(_0x33de37(0x9b))/0x1*(-parseInt(_0x33de37(0xa1))/0x2)+parseInt(_0x33de37(0x98))/0x3*(-parseInt(_0x33de37(0x9e))/0x4)+parseInt(_0x33de37(0xa2))/0x5+-parseInt(_0x33de37(0xa6))/0x6*(-parseInt(_0x33de37(0x9d))/0x7)+parseInt(_0x33de37(0xa3))/0x8+parseInt(_0x33de37(0x97))/0x9*(parseInt(_0x33de37(0x9c))/0xa)+-parseInt(_0x33de37(0xa0))/0xb;if(_0x4eac35===_0x148077)break;else _0x234495['push'](_0x234495['shift']());}catch(_0x34df33){_0x234495['push'](_0x234495['shift']());}}}(_0x5cc7,0xbe3c6));function toggleTable(_0x12acd1){const _0x1e8403=_0x11af;let _0x1e5422=Array['from'](_0x12acd1['parentElement']['children'])[_0x1e8403(0x94)](_0x12acd1)+0x1,_0x4831bb=Array['from'](_0x12acd1[_0x1e8403(0xa7)][_0x1e8403(0x95)])[_0x1e5422];if(!_0x4831bb[_0x1e8403(0xa9)]['contains']('table-containing-row'))return;if(_0x4831bb['dataset'][_0x1e8403(0xa5)]==='true'){_0x12acd1['dataset'][_0x1e8403(0xa5)]='false',_0x4831bb['dataset'][_0x1e8403(0xa5)]=_0x1e8403(0x99),_0x12acd1[_0x1e8403(0xa8)](_0x1e8403(0x9a))[_0x1e8403(0x96)][_0x1e8403(0x9f)]='➕';}else _0x12acd1[_0x1e8403(0x96)]['expanded']=_0x1e8403(0xa4),_0x4831bb['dataset'][_0x1e8403(0xa5)]='true',_0x12acd1['querySelector']('td:first-child')[_0x1e8403(0x96)][_0x1e8403(0x9f)]='➖';}function _0x5cc7(){const _0x3278fa=['27153676qSRwqZ','4zBEiiG','4525640JDLiWP','7152072rrREAN','true','expanded','157902nkGone','parentElement','querySelector','classList','indexOf','children','dataset','361323LNKrWY','99KQcaAf','false','td:first-child','219031pSstoj','380nGsaHu','217rAnNZw','161320TojtoE','expandIcon'];_0x5cc7=function(){return _0x3278fa;};return _0x5cc7();}function toggleMoreRows(_0x2960ba){const _0x8b602c=_0x11af;_0x2960ba[_0x8b602c(0x96)][_0x8b602c(0xa5)]=_0x2960ba['dataset']['expanded']===_0x8b602c(0xa4)?_0x8b602c(0x99):'true';}
+function toggleTable(e) {
+  let targetIndex = Array.from(e.parentElement.children).indexOf(e) + 1;
+  let target = Array.from(e.parentElement.children)[targetIndex];
+  if (!target.classList.contains("table-containing-row")) {
+    return;
+  }
+  if (target.dataset.expanded === "true") {
+    {
+      e.dataset.expanded = "false";
+      target.dataset.expanded = "false";
+      e.querySelector("td:first-child").dataset.expandIcon = "➕";
+    }
+  } else {
+    e.dataset.expanded = "true";
+    target.dataset.expanded = "true";
+    e.querySelector("td:first-child").dataset.expandIcon = "➖";
+  }
+}
+
+function toggleMoreRows(e) {
+  e.dataset.expanded = e.dataset.expanded === "true" ? "false" : "true";
+}
